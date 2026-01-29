@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MindBridge</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="landing">
+    <h1 class="brand">MindBridge</h1>
+
+    <h2 class="tagline">
+      Your Feelings Matter. Someone Is Here to Listen.
+    </h2>
+
+    <p class="description">
+      MindBridge connects you with verified psychology students and
+      professionals for safe, confidential emotional support.
+    </p>
+
+    <div class="button-group">
+      <button class="btn light" onclick="goLogin('seeker')">I Need Help</button>
+<button class="btn dark" onclick="goLogin('helper')">I Want to Help</button>
+    </div>
+    <div id="modal" class="modal hidden">
+  <div class="modal-box">
+    <h2>Request Support</h2>
+
+    <input id="name" type="text" placeholder="Your name" />
+    <textarea id="issue" placeholder="What's bothering you?"></textarea>
+
+    <button class="primary-btn" onclick="submitRequest()">Send Request</button>
+<button class="secondary-btn" onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+<div id="supporterModal" class="modal hidden">
+  <div class="modal-box">
+    <h2>Incoming Support Requests</h2>
+
+    <div id="requestList"></div>
+
+    <button class="secondary-btn" onclick="closeSupporterModal()">
+      Close
+    </button>
+  </div>
+</div>
+
+  </main>
+
+<div id="toast" class="toast"></div>
+
+</body>
+</html>
+<script src="script.js"></script>
+
+

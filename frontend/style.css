@@ -1,0 +1,568 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f1e6; /* beige */
+  color: #4b3b2f;
+  height: 100vh;
+}
+
+/* Landing container */
+.landing {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Website name */
+.brand {
+  font-size: 64px;
+  font-weight: 800;
+  color: #6b4f3f;
+  margin-bottom: 20px;
+}
+
+/* Tagline */
+.tagline {
+  font-size: 28px;
+  font-weight: 600;
+  color: #5a4d41;
+  margin-bottom: 16px;
+}
+
+/* Description */
+.description {
+  max-width: 700px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #6a5a4a;
+  margin-bottom: 40px;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Light button */
+.btn.light {
+  background-color: #d6bfa6;
+  color: #4b3b2f;
+}
+
+.btn.light:hover {
+  background-color: #c9ad8c;
+}
+
+/* Dark button */
+.btn.dark {
+  background-color: #6b4f3f;
+  color: #ffffff;
+}
+
+.btn.dark:hover {
+  background-color: #5a3f31;
+}
+/* Toast notification */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #333;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(20px);
+}
+
+.toast.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.toast.success {
+  background-color: #16a34a; /* green */
+}
+
+.toast.error {
+  background-color: #dc2626; /* red */
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-box {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 350px;
+  text-align: center;
+}
+
+.modal-box input,
+.modal-box textarea {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.modal-box button {
+  margin-top: 10px;
+}
+
+.close-btn {
+  background: #ddd;
+}
+.primary-btn {
+  background: #8b5e3c;          /* dark brown */
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.primary-btn:hover {
+  background: #744a2f;
+}
+
+.secondary-btn {
+  background: #e5e7eb;          /* light grey */
+  color: #111827;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 8px;
+}
+
+.secondary-btn:hover {
+  background: #d1d5db;
+}
+.modal-box button {
+  margin-top: 12px;
+}
+.request-card {
+  background: #fff8e1;
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+
+  display: flex;
+  flex-direction: column;   /* 🔥 KEY FIX */
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.request-card p {
+  margin: 0;
+  font-size: 14px;
+  color: #1f2937;
+}
+.request-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.label {
+  font-weight: 600;
+  color: #374151;
+}
+
+.value {
+  color: #1f2937;
+}
+
+.primary-btn[disabled] {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= BASE ================= */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f1e6; /* calm beige */
+  color: #4b3b2f;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= HEADINGS ================= */
+h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #6b4f3f;
+}
+
+h2 {
+  font-size: 22px;
+  margin-bottom: 14px;
+  color: #5a4d41;
+}
+
+/* ================= BUTTONS ================= */
+.primary-btn {
+  background: #8b5e3c;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.primary-btn:hover {
+  background: #744a2f;
+}
+
+.primary-btn[disabled] {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.secondary-btn {
+  background: #e5e7eb;
+  color: #111827;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* ================= INPUTS ================= */
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #d6bfa6;
+  font-size: 14px;
+}
+
+/* ================= CONTAINERS ================= */
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  width: 380px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ================= LOGIN ================= */
+.login-container {
+  width: 380px;
+}
+
+.login-container h2 {
+  text-align: center;
+}
+
+/* ================= DASHBOARD ================= */
+.dashboard {
+  width: 90%;
+  max-width: 700px;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* ================= REQUEST CARD ================= */
+.request-card {
+  background: #fff8e1;
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.request-card p {
+  font-size: 14px;
+  color: #1f2937;
+}
+
+.request-row {
+  display: flex;
+  gap: 8px;
+}
+
+.label {
+  font-weight: 600;
+}
+
+/* ================= MODAL ================= */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+.dashboard-container {
+  max-width: 700px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;  /* space between card and request list */
+}
+
+.dashboard {
+  padding: 20px;
+  border-radius: 12px;
+  background: #fff8e1;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#myRequests .request-card {
+  margin-top: 12px;
+}
+.card.dashboard {
+  position: relative;
+  z-index: 1;
+}
+/* ================= DASHBOARD SIZE FIX ================= */
+
+.dashboard-container {
+  width: 100%;
+  max-width: 900px;   /* 👈 makes seeker as wide as helper */
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.card.dashboard {
+  width: 100%;
+}
+/* ================= SEEKER DASH POLISH ================= */
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* 🔥 centers everything */
+}
+
+.card.dashboard {
+  background: white;
+  border-radius: 18px;   /* 👈 more rounded */
+  padding: 30px;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+#myRequests {
+  width: 100%;
+  max-width: 900px;
+}
+.card.dashboard textarea {
+  min-height: 90px;
+}
+
+.card.dashboard .primary-btn {
+  align-self: flex-end;
+}
+/* ================= CHAT ================= */
+
+.chat-box {
+  width: 90%;
+  max-width: 600px;
+}
+
+.chat-messages {
+  height: 320px;
+  overflow-y: auto;
+  background: #fef3c7;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.chat-msg {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.chat-msg .time {
+  font-size: 11px;
+  color: #6b7280;
+  margin-left: 6px;
+}
+
+.chat-input {
+  display: flex;
+  gap: 10px;
+}
+
+.chat-input input {
+  flex: 1;
+}
+.hidden {
+  display: none;
+}
+.secondary-btn {
+  background: transparent;
+  border: 1px solid #aaa;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.profile-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+
+  background-color: #6c63ff;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profile-btn:hover {
+  background-color: #584fe0;
+  transform: scale(1.05);
+}
+
+/* Make sure parent is relative */
+.dashboard {
+  position: relative;
+}
+/* ================= PROFILE PAGE ================= */
+
+.profile-card {
+  width: 100%;
+  max-width: 900px;   /* 👈 SAME AS HELPER */
+  padding: 40px;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+}
+
+/* Profile layout */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.profile-pic {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+/* Profile text */
+.profile-info h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.profile-info p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Profile fields */
+.profile-section {
+  margin-top: 20px;
+}
+
+.profile-section label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.profile-section p {
+  background: #fef3c7;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+
+

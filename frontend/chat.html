@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MindBridge Chat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card dashboard chat-box">
+  <h2>💬 Support Chat</h2>
+
+  <div id="messages" class="chat-messages"></div>
+
+  <div class="chat-input">
+    <input id="msgInput" placeholder="Type your message..." />
+    <button class="primary-btn" onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<!-- Socket.IO CDN -->
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+
+<script>
+const socket = io("http://localhost:5000");
+
+const username = localStorage.getItem("username");
+const requestId = localStorage.getItem("chatRequestId");
+
+// Join room
+socket.emit("joinRoom", requestId);
+
+// Receive messages
+socket.on("receiveMessage", (data) => {
+  const box = document.getElementById("messages");
+
+  box.innerHTML += `
+    <div class="chat-msg">
+      <strong>${data.sender}:</strong> ${data.message}
+      <span class="time">${data.time}</span>
+    </div>
+  `;
+
+  box.scrollTop = box.scrollHeight;
+});
+
+function sendMessage() {
+  const input = document.getElementById("msgInput");
+  const message = input.value.trim();
+
+  if (!message) return;
+
+  socket.emit("sendMessage", {
+    roomId: requestId,
+    sender: username,
+    message
+  });
+
+  input.value = "";
+}
+</script>
+
+</body>
+</html>

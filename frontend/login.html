@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login | MindBridge</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card login-container">
+  <h2>Login</h2>
+
+  <input id="username" placeholder="Your name" />
+  <button class="primary-btn" onclick="login()">Continue</button>
+</div>
+
+<script>
+function login() {
+  const name = document.getElementById("username").value;
+  const role = localStorage.getItem("role");
+
+  localStorage.setItem("username", name);
+
+  if (role === "seeker") {
+    window.location.href = "seeker.html";
+  } else {
+    window.location.href = "helper.html";
+  }
+}
+</script>
+
+</body>
+</html>
+

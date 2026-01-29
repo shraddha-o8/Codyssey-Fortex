@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Seeker Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+
+  <!-- Greeting + Request Form -->
+  <div class="card dashboard">
+    <h2>Hello, <span id="name"></span> 🤎</h2>
+    <button onclick="window.location.href='profile.html'">
+  My Profile
+</button>
+
+    <p>You can request support anytime</p>
+
+    <textarea id="issue" placeholder="What's bothering you?"></textarea>
+    <button class="primary-btn" id="sendRequestBtn">
+      Send Request
+    </button>
+  </div>
+
+  <!-- Requests List -->
+  <h3>Your Requests</h3>
+  <div id="myRequests"></div>
+
+  <!-- 🔥 REAL-TIME CHAT (hidden initially) -->
+  <!-- CHAT (HIDDEN INITIALLY) -->
+<div id="chatSection" class="card dashboard hidden">
+  <h3>Chat with Helper 🧠</h3>
+
+  <div id="chatBox" class="chat-box"></div>
+
+  <input
+    type="text"
+    id="chatInput"
+    placeholder="Type your message..."
+  />
+  <button class="primary-btn">Send</button>
+</div>
+
+
+<!-- Socket.IO client -->
+<script src="http://localhost:5000/socket.io/socket.io.js"></script>
+
+<!-- Seeker logic -->
+<script src="seeker.js"></script>
+
+</body>
+</html>
+
+
+

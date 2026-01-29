@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Helper Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card dashboard">
+  <h1>Helper Dashboard 🧠</h1>
+  <button class="secondary-btn" onclick="window.location.href='profile.html'">
+  View Profile 👤
+</button>
+  <div id="requestList"></div>
+</div>
+
+<script>
+async function loadRequests() {
+  const res = await fetch("http://localhost:5000/api/requests");
+  const requests = await res.json();
+
+  const list = document.getElementById("requestList");
+  list.innerHTML = "";
+
+  if (requests.length === 0) {
+    list.innerHTML = "<p>No requests yet.</p>";
+    return;
+  }
+
+  requests.forEach(req => {
+  list.innerHTML += `
+    <div class="request-card">
+      <p><strong>${req.seekerName}</strong></p>
+      <p>${req.issue}</p>
+      <p>Status: ${req.status}</p>
+
+      ${
+        req.status === "accepted"
+          ? `<button class="primary-btn" onclick="openChat(${req.id})">
+               Open Chat 💬
+             </button>`
+          : `<button class="primary-btn" onclick="accept(${req.id})">
+               Accept
+             </button>`
+             
+      }
+    </div>
+  
+
+  `;
+});
+
+}
+
+async function accept(id) {
+  await fetch(`http://localhost:5000/api/request/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ status: "accepted" })
+  });
+
+  loadRequests();
+}
+function openChat(requestId) {
+  localStorage.setItem("chatRequestId", requestId);
+  window.location.href = "chat.html";
+}
+
+loadRequests();
+</script>
+
+</body>
+</html>
+
+
